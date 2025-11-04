@@ -1,0 +1,6 @@
+.wrap { display: inline-flex; gap: 8px; background: #0b1220; border: 1px solid #1a2742; border-radius: 12px; padding: 4px; }
+.wrap button {
+  background: transparent; color: #cbd5e1; border: none; padding: 6px 10px; border-radius: 8px; cursor: pointer;
+}
+.wrap button:hover { background: #111827; }
+.active { background: #1f2937 !important; color: #fff !important; }

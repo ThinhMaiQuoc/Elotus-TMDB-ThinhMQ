@@ -1,0 +1,29 @@
+.shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #0f0f0f;
+  color: #fafafa;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15,15,15,.9);
+  border-bottom: 1px solid #202020;
+  backdrop-filter: blur(6px);
+}
+.logo { font-size: 18px; margin: 0; }
+.tabs {
+  display: flex; gap: 12px;
+  a {
+    color: #cfcfcf; text-decoration: none; padding: 6px 10px; border-radius: 8px;
+  }
+  a:hover { background: #1a1a1a; }
+}
+.active { background: #1e293b; color: white !important; }
+.main { padding: 16px; }

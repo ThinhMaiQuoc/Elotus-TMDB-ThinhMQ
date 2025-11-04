@@ -1,0 +1,19 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
