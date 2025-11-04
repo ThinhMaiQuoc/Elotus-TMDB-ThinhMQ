@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { useSearchMovies } from '../lib/queries'
 import SearchInput from '../components/form/SearchInput/SearchInput'
-import MovieGrid from '../components/movie/MovieGrid/MovieGrid'
+import MovieList from '../components/movie/MovieList/MovieList'
 import MovieCardSkeleton from '../components/movie/MovieCard/MovieCardSkeleton'
 import ErrorMessage from '../components/common/ErrorMessage/ErrorMessage'
 import EmptyState from '../components/common/EmptyState/EmptyState'
@@ -77,7 +77,7 @@ export default function Search() {
             </span>
           </div>
 
-          <MovieGrid movies={data.results} />
+          <MovieList movies={data.results} />
 
           {data.results.length > 0 && (
             <div className={styles.pagination}>

@@ -27,3 +27,9 @@ export interface Paged<T> {
 export interface APIError {
   error: string
 }
+
+export const ViewMode = {
+  GRID: 'grid',
+  LIST: 'list',
+} as const
+export type ViewMode = typeof ViewMode[keyof typeof ViewMode]

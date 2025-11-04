@@ -1,6 +1,8 @@
 import { useSearchParams } from 'react-router-dom'
 import { useNowPlaying, useTopRated } from '../lib/queries'
-import MovieGrid from '../components/movie/MovieGrid/MovieGrid'
+import type { ViewMode } from '../lib/types'
+import { ViewMode as VM } from '../lib/types'
+import MovieList from '../components/movie/MovieList/MovieList'
 import MovieCardSkeleton from '../components/movie/MovieCard/MovieCardSkeleton'
 import ViewToggle from '../components/form/ViewToggle/ViewToggle'
 import PageHeader from '../components/common/PageHeader/PageHeader'
@@ -18,14 +20,15 @@ export default function MoviesPage({ type, title }: MoviesPageProps) {
   const [searchParams, setSearchParams] = useSearchParams()
 
   const page = parseInt(searchParams.get('page') || '1')
-  const view = (searchParams.get('view') || 'grid') as 'grid' | 'list'
+  const viewParam = searchParams.get('view')
+  const view: ViewMode = viewParam === VM.LIST ? VM.LIST : VM.GRID
 
   // Only call the query hook we actually need
   const { data, isLoading, isError, refetch } = type === 'now-playing'
     ? useNowPlaying(page)
     : useTopRated(page)
 
-  const setView = (newView: 'grid' | 'list') => {
+  const setView = (newView: ViewMode) => {
     setSearchParams(prev => {
       const params = new URLSearchParams(prev)
       params.set('view', newView)
@@ -62,7 +65,7 @@ export default function MoviesPage({ type, title }: MoviesPageProps) {
         actions={<ViewToggle value={view} onChange={setView} />}
       />
 
-      <MovieGrid movies={data?.results ?? []} view={view} />
+      <MovieList movies={data?.results ?? []} view={view} />
 
       {data && data.results.length > 0 && (
         <div className={styles.pagination}>
