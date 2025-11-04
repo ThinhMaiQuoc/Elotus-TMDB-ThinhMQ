@@ -42,7 +42,7 @@ This is a production-ready single-page application featuring a clean separation 
 
 ## 🎥 Video Walkthrough
 
-> Video demonstration will be provided separately
+![App Demo](./demo.webm)
 
 ## 📁 Project Structure
 
